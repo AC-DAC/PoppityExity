@@ -19,29 +19,30 @@
 .poppity-exity-modal-content {
     position: relative;
     background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
+    margin: 15px auto;
+    padding: clamp(15px, 4vw, 30px);
     border-radius: 5px;
-    width: 80%;
-    max-width: 600px;
+    width: min(90%, 600px);
+    max-height: 90vh;
     transform: translateY(-20px);
     transition: transform 0.3s ease-in-out;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.poppity-exity-modal.show .poppity-exity-modal-content {
-    transform: translateY(0);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .poppity-exity-close {
     position: absolute;
-    right: 10px;
-    top: 5px;
+    right: clamp(10px, 3vw, 15px);
+    top: clamp(5px, 2vw, 10px);
     color: #aaa;
-    font-size: 28px;
+    font-size: clamp(24px, 5vw, 28px);
     font-weight: bold;
     cursor: pointer;
     line-height: 1;
+    padding: 5px;
+    z-index: 1;
+    transition: color 0.2s ease;
 }
 
 .poppity-exity-close:hover,
@@ -53,4 +54,7 @@
 
 .poppity-exity-content {
     margin-top: 15px;
+    max-height: calc(600px - 60px);
+    overflow-y: auto;
+    padding-right: 10px;
 }

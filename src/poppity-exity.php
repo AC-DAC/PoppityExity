@@ -104,7 +104,7 @@ class PoppityExity {
             <div class="poppity-exity-modal-content">
                 <span class="poppity-exity-close">&times;</span>
                 <div class="poppity-exity-content">
-                    <?php echo wp_kses_post($content); ?>
+                    <?php echo do_shortcode(wp_kses_post($content)); ?>
                 </div>
             </div>
         </div>
