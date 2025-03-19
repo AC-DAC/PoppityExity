@@ -36,8 +36,8 @@ class PoppityExity {
 
     public function add_admin_menu() {
         add_options_page(
-            __('PoppityExity Settings', 'poppity-exity'),
-            __('PoppityExity', 'poppity-exity'),
+            __('PoppityExity Settings', 'src'),
+            __('PoppityExity', 'src'),
             'manage_options',
             'poppity-exity',
             array($this, 'render_settings_page')
@@ -45,7 +45,11 @@ class PoppityExity {
     }
 
     public function register_settings() {
-        register_setting('poppity_exity_options', 'poppity_exity_content');
+        register_setting('poppity_exity_options', 'poppity_exity_content', array(
+            'type' => 'string',
+            'sanitize_callback' => 'wp_kses_post',
+            'default' => ''
+        ));
     }
 
     public function render_settings_page() {
