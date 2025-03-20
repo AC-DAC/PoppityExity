@@ -17,14 +17,15 @@
 }
 
 .poppity-exity-modal-content {
-    position: relative;
+    position: fixed;
     background-color: #fefefe;
-    margin: 15px auto;
     padding: clamp(15px, 4vw, 30px);
     border-radius: 5px;
     width: min(90%, 600px);
     max-height: 90vh;
-    transform: translateY(-20px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     transition: transform 0.3s ease-in-out;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
