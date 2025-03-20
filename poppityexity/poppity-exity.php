@@ -47,9 +47,20 @@ class PoppityExity {
     public function register_settings() {
         register_setting('poppity_exity_options', 'poppity_exity_content', array(
             'type' => 'string',
-            'sanitize_callback' => 'wp_kses_post',
+            'sanitize_callback' => array($this, 'sanitize_content'),
             'default' => ''
         ));
+    }
+    
+    /**
+     * Sanitize the content from the editor
+     * 
+     * @param string $content The content to be sanitized
+     * @return string The sanitized content
+     */
+    public function sanitize_content($content) {
+        // Apply WordPress post content sanitization
+        return wp_kses_post($content);
     }
 
     public function render_settings_page() {
